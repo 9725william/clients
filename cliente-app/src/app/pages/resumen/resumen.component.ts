@@ -14,18 +14,8 @@ export class ResumenComponent implements OnInit {
 
   cliente: Cliente | null = null;
 
-  ngOnInit() {
+  ngOnInit(): void {
     const state = history.state;
-    if (state?.tipo === 'C' && state?.numero === '23445322') {
-      this.cliente = {
-        primerNombre: 'Carlos',
-        segundoNombre: 'Andrés',
-        primerApellido: 'Pérez',
-        segundoApellido: 'Gómez',
-        telefono: '3001234567',
-        direccion: 'Cra 45 #123-45',
-        ciudad: 'Bogotá'
-      };
-    }
+    this.cliente = state?.cliente || null;
   }
 }
