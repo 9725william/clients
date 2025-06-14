@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h3 class="mb-4">Informacion basica</h3>
+  <div *ngIf="cliente; else noData">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Nombre:</strong> {{cliente.primerNombre}} {{cliente.segundoNombre}}</li>
+      <li class="list-group-item"><strong>Apellidos:</strong> {{cliente.primerApellido}} {{cliente.segundoApellido}}</li>
+      <li class="list-group-item"><strong>Teléfono:</strong> {{cliente.telefono}}</li>
+      <li class="list-group-item"><strong>Dirección:</strong> {{cliente.direccion}}</li>
+      <li class="list-group-item"><strong>Ciudad:</strong> {{cliente.ciudad}}</li>
+    </ul>
+    <button class="btn btn-secondary mt-3" routerLink="/">Volver</button>
+  </div>
+
+  <ng-template #noData>
+    <div class="alert alert-danger">Cliente no encontrado.</div>
+  </ng-template>
+</div>

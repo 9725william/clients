@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h3 class="mb-4">Consulta de Cliente</h3>
+
+  <form [formGroup]="formulario">
+    <div class="mb-3">
+      <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
+      <select class="form-select" formControlName="tipo">
+        <option value="">Seleccione</option>
+        <option value="C">Cédula de Ciudadanía</option>
+        <option value="P">Pasaporte</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroDocumento" class="form-label">Número de Documento</label>
+      <input type="text" class="form-control" formControlName="numero" (input)="formatDocumento()" />
+    </div>
+
+    <button class="btn btn-primary" [disabled]="!formulario.valid" (click)="buscar()">Buscar</button>
+  </form>
+</div>
