@@ -1,11 +1,14 @@
-<div class="container">
-  <header class="my-3">
-    <h1 class="text-center">Gestión de Clientes</h1>
+<div class="container-fluid app-wrapper">
+  <header class="app-header text-white text-center py-4 shadow-sm">
+    <h1 class="animate-fade-in">Gestión de Clientes</h1>
+    <p class="lead">Consulta, visualiza y gestiona tu información de manera intuitiva</p>
   </header>
 
-  <router-outlet></router-outlet>
+  <main class="app-main container py-4">
+    <router-outlet></router-outlet>
+  </main>
 
-  <footer class="text-center mt-5">
-    <small>&copy; 2025 - Aplicación de Clientes</small>
+  <footer class="app-footer text-center py-3">
+    <small>&copy; 2025 - Aplicación de Clientes. Todos los derechos reservados.</small>
   </footer>
 </div>

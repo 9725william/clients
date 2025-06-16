@@ -1,21 +1,30 @@
 <div class="container mt-5">
-  <h3 class="mb-4">Consulta de Cliente</h3>
+    <h3 class="mb-4">Consulta de Cliente</h3>
 
-  <form [formGroup]="formulario">
-    <div class="mb-3">
-      <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
-      <select class="form-select" formControlName="tipo">
-        <option value="">Seleccione</option>
-        <option value="C">Cédula de Ciudadanía</option>
-        <option value="P">Pasaporte</option>
-      </select>
-    </div>
+    <form [formGroup]="formulario" (ngSubmit)="buscar()">
+        <div class="mb-3">
+            <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
+            <select class="form-select" formControlName="tipo">
+                <option value="">Seleccione</option>
+                <option value="C">Cédula de Ciudadanía</option>
+                <option value="P">Pasaporte</option>
+            </select>
+            <div *ngIf="formulario.get('tipo')?.invalid && formulario.get('tipo')?.touched" class="text-danger">
+                El tipo de documento es requerido.
+            </div>
+        </div>
 
-    <div class="mb-3">
-      <label for="numeroDocumento" class="form-label">Número de Documento</label>
-      <input type="text" class="form-control" formControlName="numero" (input)="formatDocumento()" />
-    </div>
+        <div class="mb-3">
+            <label for="numeroDocumento" class="form-label">Número de Documento</label>
+            <input id="numeroDocumento" type="text" class="form-control" formControlName="numero"
+                (input)="formatDocumento()" placeholder="Ej: 1.234.567" />
+            <div *ngIf="formulario.get('numero')?.invalid && formulario.get('numero')?.touched" class="text-danger">
+                Número de documento debe ser de 8 a 11 caracteres y contener solo números.
+            </div>
+        </div>
 
-    <button class="btn btn-primary" [disabled]="!formulario.valid" (click)="buscar()">Buscar</button>
-  </form>
+        <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">
+            Buscar
+        </button>
+    </form>
 </div>

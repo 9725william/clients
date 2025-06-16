@@ -1,0 +1,88 @@
+// Variables
+$primary-color: #0d6efd;
+$secondary-color: #f8f9fa;
+$accent-color: #6f42c1;
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes background-fade {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.app-wrapper {
+    min-height: 100vh;
+    background-color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background: linear-gradient(to right, $primary-color, $accent-color);
+    animation: fade-in 1s ease-out;
+
+    h1 {
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+}
+
+.app-main {
+    flex: 1;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    animation: fade-in 0.8s ease-in-out;
+}
+
+.app-footer {
+    background-color: white;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    animation: background-fade 20s ease-in-out infinite alternate;
+}
+
+
+@keyframes background-fade {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
